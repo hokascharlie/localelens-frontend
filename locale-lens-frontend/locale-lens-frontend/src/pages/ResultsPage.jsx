@@ -6,7 +6,7 @@ export default function ResultsPage({ query }) {
   const [results, setResults] = useState([])
 
   useEffect(() => {
-    axios.get(`https://your-cloud-run-url/search?q=${encodeURIComponent(query)}`)
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}/search?q=${encodeURIComponent(query)}`)
       .then(res => setResults(res.data))
       .catch(err => console.error(err))
   }, [query])
